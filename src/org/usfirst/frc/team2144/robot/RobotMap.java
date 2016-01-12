@@ -12,6 +12,10 @@ public class RobotMap {
     public static int fRightPort = 1;
     public static int bLeftPort = 2;
     public static int bRightPort = 3;
+    public static int ArmBasePort = 4;
+    
+    public static int ArmBaseEncoderA = 0;
+    public static int ArmBaseEncoderB = 1;
     
     
     // If you are using multiple modules, make sure to define both the port
