@@ -43,12 +43,14 @@ public class Drivetrain extends Subsystem {
 	// here. Call these from Commands.
 
 	public RobotDrive robit;
-	public Talon left, right;
+	public Talon fLeft, fRight, bLeft, bRight;
 
 	public Drivetrain() {
-		left = new Talon(RobotMap.leftPort);
-		right = new Talon(RobotMap.rightPort);
-		robit = new RobotDrive(left, right);
+		fLeft = new Talon(RobotMap.fLeftPort);
+		fRight = new Talon(RobotMap.fRightPort);
+		bLeft = new Talon(RobotMap.bLeftPort);
+		bRight = new Talon(RobotMap.bRightPort);
+		robit = new RobotDrive(fLeft, bLeft, fRight, bRight);
 	}
 
 	public void gatorDrive(boolean isPrecise, double stickX, double stickY) {
