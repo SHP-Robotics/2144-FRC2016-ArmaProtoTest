@@ -21,7 +21,7 @@ public class ArmBase extends PIDSubsystem {
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
-    	super(0.2, 0.2, 0.2);
+    	super(1, 1, 1);
     	controller = new Talon(RobotMap.ArmBasePort);
     	encoder = new Encoder(RobotMap.ArmBaseEncoderA, RobotMap.ArmBaseEncoderB);
     }
