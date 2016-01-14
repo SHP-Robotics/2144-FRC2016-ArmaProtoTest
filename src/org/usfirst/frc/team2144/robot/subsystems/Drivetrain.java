@@ -27,9 +27,18 @@ public class Drivetrain extends Subsystem {
 		robit = new RobotDrive(fLeft, bLeft, fRight, bRight);
 	}
 
-	public void gatorDrive(boolean isPrecise, double stickX, double stickY) {
-		if (isPrecise) robit.arcadeDrive(stickY, stickX);
-		else robit.arcadeDrive(stickY / 2, stickX / 2);
+	public void arcadeDrive(boolean isPrecise, double stickX, double stickY) {
+		if (isPrecise)
+			robit.arcadeDrive(stickY, stickX);
+		else
+			robit.arcadeDrive(stickY / 2, stickX / 2);
+	}
+
+	public void tankDrive(boolean isPrecise, double leftStickY, double rightStickY) {
+		if (isPrecise)
+			robit.tankDrive(leftStickY, rightStickY);
+		else
+			robit.tankDrive(leftStickY / 2, rightStickY / 2);
 	}
 
 	public void initDefaultCommand() {

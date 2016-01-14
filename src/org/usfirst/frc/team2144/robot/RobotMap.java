@@ -17,6 +17,9 @@ public class RobotMap {
     public static int ArmBaseEncoderA = 0;
     public static int ArmBaseEncoderB = 1;
     
+	public static int armBaseUp = 1000;
+	public static int armBaseDown = 0;
+    
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
