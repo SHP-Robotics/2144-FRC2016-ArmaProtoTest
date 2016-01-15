@@ -5,7 +5,10 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc.team2144.robot.commands.GatorDrive;
+import org.usfirst.frc.team2144.robot.commands.ResetEverything;
 import org.usfirst.frc.team2144.robot.subsystems.Drivetrain;
 
 /**
@@ -21,6 +24,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
     Command autonomousCommand;
+    Command resetEverything;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -30,11 +34,14 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
         autonomousCommand = null;
+        resetEverything = new ResetEverything();
+        
+        // put everything on the SmartDashboard
+        SmartDashboard.putData(Scheduler.getInstance());
+        
+        // reset all our sensors
+        resetEverything.start();
     }
-	
-	public void disabledPeriodic() {
-		Scheduler.getInstance().run();
-	}
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
@@ -58,8 +65,15 @@ public class Robot extends IterativeRobot {
     }
     
     public void disabledInit(){
-
+    	// reset all our sensors
+        resetEverything.start();
     }
+    
+    public void disabledPeriodic() {
+		Scheduler.getInstance().run();
+		// reset all our sensors
+        resetEverything.start();
+	}
 
     public void testPeriodic() {
         LiveWindow.run();
