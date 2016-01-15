@@ -27,6 +27,8 @@ public class Drivetrain extends Subsystem {
 		bLeft = new Talon(RobotMap.bLeftPort);
 		bRight = new Talon(RobotMap.bRightPort);
 		robit = new RobotDrive(fLeft, bLeft, fRight, bRight);
+		leftEnc = new Encoder(RobotMap.leftEncPortA, RobotMap.leftEncPortB);
+		rightEnc = new Encoder(RobotMap.rightEncPortA, RobotMap.rightEncPortB);
 	}
 
 	public void arcadeDrive(boolean isPrecise, double stickX, double stickY) {
