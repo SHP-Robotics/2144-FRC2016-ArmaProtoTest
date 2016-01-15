@@ -23,7 +23,7 @@ public class ArmBaseDown extends CommandBase {
 
 	@Override
 	protected boolean isFinished() {
-		return false;
+		return true;
 	}
 
 	@Override

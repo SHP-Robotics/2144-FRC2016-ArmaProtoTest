@@ -4,7 +4,6 @@ public class ResetEverything extends CommandBase {
 
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
 		requires(drivetrain);
 		requires(armBase);
 	}
