@@ -18,7 +18,7 @@ public class ArmBaseManual extends CommandBase {
 
 	@Override
 	protected void execute() {
-		armBase.setSetpointRelative((oi.getStick2POV() == 0) ? 1 : (oi.getStick2POV() == 180) ? -1 : 0);
+		armBase.setSetpointRelative(oi.getStick2Y());
 	}
 
 	@Override
