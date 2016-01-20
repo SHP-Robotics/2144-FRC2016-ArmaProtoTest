@@ -14,14 +14,14 @@ public class RobotMap {
 	public static final int bRightPort = 3;
 	public static final int ArmBasePort = 4;
 
-	public static final int ArmBaseEncoderA = 0;
-	public static final int ArmBaseEncoderB = 1;
+	public static final int ArmBasePotPort = 0;
 
 	public static final int leftEncPortA = 0;
 	public static final int leftEncPortB = 1;
 	public static final int rightEncPortA = 2;
 	public static final int rightEncPortB = 3;
 
-	public static final int armBaseUp = 1000;
+	public static final int armBaseUp = 4;
 	public static final int armBaseDown = 0;
+
 }

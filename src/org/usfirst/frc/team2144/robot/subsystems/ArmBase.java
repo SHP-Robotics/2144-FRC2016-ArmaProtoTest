@@ -2,7 +2,7 @@ package org.usfirst.frc.team2144.robot.subsystems;
 
 import org.usfirst.frc.team2144.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 public class ArmBase extends PIDSubsystem {
 
 	Talon controller;
-	Encoder encoder;
+	AnalogInput potentiometer;
 
 	// Initialize your subsystem here
 	public ArmBase() {
@@ -22,7 +22,7 @@ public class ArmBase extends PIDSubsystem {
 		// enable() - Enables the PID controller.
 		super(1, 1, 1);
 		controller = new Talon(RobotMap.ArmBasePort);
-		encoder = new Encoder(RobotMap.ArmBaseEncoderA, RobotMap.ArmBaseEncoderB);
+		potentiometer = new AnalogInput(RobotMap.ArmBasePotPort);
 	}
 
 	public void initDefaultCommand() {
@@ -34,7 +34,7 @@ public class ArmBase extends PIDSubsystem {
 		// Return your input value for the PID loop
 		// e.g. a sensor, like a potentiometer:
 		// yourPot.getAverageVoltage() / kYourMaxVoltage;
-		return encoder.get();
+		return potentiometer.getAverageVoltage();
 	}
 
 	protected void usePIDOutput(double output) {
@@ -42,11 +42,7 @@ public class ArmBase extends PIDSubsystem {
 		controller.set(output);
 	}
 
-	public void reset_encoder() {
-		encoder.reset();
-	}
-
-	public int get_encoder() {
-		return encoder.get();
+	public double get_pot() {
+		return potentiometer.getAverageVoltage();
 	}
 }

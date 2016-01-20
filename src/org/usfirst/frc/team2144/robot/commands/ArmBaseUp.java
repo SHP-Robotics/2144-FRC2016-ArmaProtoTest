@@ -13,7 +13,7 @@ public class ArmBaseUp extends CommandBase {
 	protected void initialize() {
 		requires(armBase);
 		armBase.enable();
-		armBase.setAbsoluteTolerance(2);
+		armBase.setAbsoluteTolerance(0.2);
 	}
 
 	@Override

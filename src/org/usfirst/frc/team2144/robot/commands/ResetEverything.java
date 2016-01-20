@@ -11,7 +11,6 @@ public class ResetEverything extends CommandBase {
 	@Override
 	protected void execute() {
 		drivetrain.reset_encoders();
-		armBase.reset_encoder();
 	}
 
 	@Override
