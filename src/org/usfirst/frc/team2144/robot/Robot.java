@@ -23,59 +23,61 @@ public class Robot extends IterativeRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static OI oi;
 
-    Command autonomousCommand;
-    Command resetEverything;
+	Command autonomousCommand;
+	Command resetEverything;
 
-    /**
-     * This function is run when the robot is first started up and should be
-     * used for any initialization code.
-     */
-    public void robotInit() {
+	/**
+	 * This function is run when the robot is first started up and should be
+	 * used for any initialization code.
+	 */
+	public void robotInit() {
 		oi = new OI();
-        // instantiate the command used for the autonomous period
-        autonomousCommand = null;
-        resetEverything = new ResetEverything();
-        
-        // put everything on the SmartDashboard
-        SmartDashboard.putData(Scheduler.getInstance());
-        
-        // reset all our sensors
-        resetEverything.start();
-    }
+		// instantiate the command used for the autonomous period
+		autonomousCommand = null;
+		resetEverything = new ResetEverything();
 
-    public void autonomousInit() {
-        // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
-    }
+		// put everything on the SmartDashboard
+		SmartDashboard.putData(Scheduler.getInstance());
 
-    public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
-    }
-
-    public void teleopInit() {
-		// This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
-    }
-    
-    public void teleopPeriodic() {
-        Scheduler.getInstance().run();
-    }
-    
-    public void disabledInit(){
-    	// reset all our sensors
-        resetEverything.start();
-    }
-    
-    public void disabledPeriodic() {
-		Scheduler.getInstance().run();
 		// reset all our sensors
-        resetEverything.start();
+		// resetEverything.start();
 	}
 
-    public void testPeriodic() {
-        LiveWindow.run();
-    }
+	public void autonomousInit() {
+		// schedule the autonomous command (example)
+		if (autonomousCommand != null)
+			autonomousCommand.start();
+	}
+
+	public void autonomousPeriodic() {
+		Scheduler.getInstance().run();
+	}
+
+	public void teleopInit() {
+		// This makes sure that the autonomous stops running when
+		// teleop starts running. If you want the autonomous to
+		// continue until interrupted by another command, remove
+		// this line or comment it out.
+		if (autonomousCommand != null)
+			autonomousCommand.cancel();
+	}
+
+	public void teleopPeriodic() {
+		Scheduler.getInstance().run();
+	}
+
+	public void disabledInit() {
+		// reset all our sensors
+		// resetEverything.start();
+	}
+
+	public void disabledPeriodic() {
+		Scheduler.getInstance().run();
+		// reset all our sensors
+		// resetEverything.start();
+	}
+
+	public void testPeriodic() {
+		LiveWindow.run();
+	}
 }
